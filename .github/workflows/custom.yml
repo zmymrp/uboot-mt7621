@@ -15,12 +15,12 @@ on:
         description: 'MTD Partition Table'
         required: true
         type: string
-        default: '512k(Bootloader),256k(Nvram),256k(Bdata),512k(Factory),-(firmware)'
+        default: '512k(Bootloader),256k(Nvram),256k(Bdata),512k(Factory),256k(crash),256k(crash_log),-(firmware)'
       kernel_offset:
         description: 'Kernel Load Address'
         required: true
         type: string
-        default: '0x180000'
+        default: '0x200000'
       reset_pin:
         description: 'Reset Button GPIO'
         required: true
