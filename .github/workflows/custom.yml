@@ -15,22 +15,22 @@ on:
         description: 'MTD Partition Table'
         required: true
         type: string
-        default: '192k(u-boot),64k(u-boot-env),64k(factory),-(firmware)'
+        default: '512k(Bootloader),256k(Nvram),256k(Bdata),512k(Factory),-(firmware)'
       kernel_offset:
         description: 'Kernel Load Address'
         required: true
         type: string
-        default: '0x50000'
+        default: '0x180000'
       reset_pin:
         description: 'Reset Button GPIO'
         required: true
         type: number
-        default: -1
+        default: 6
       sysled_pin:
         description: 'System LED GPIO'
         required: true
         type: number
-        default: -1
+        default: 15
       cpufreq:
         description: 'CPU Frequency (400 - 1200)'
         required: true
@@ -45,7 +45,7 @@ on:
         - '800'
         - '1066'
         - '1200'
-        default: '800'
+        default: '1200'
       ddrparam:
         description: 'Prefered DDR Init Parameters'
         required: true
@@ -76,7 +76,7 @@ on:
 jobs:
   build:
     name: Build MT7621 u-boot
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     strategy:
        fail-fast: False
 
